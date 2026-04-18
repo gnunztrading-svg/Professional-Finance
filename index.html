@@ -22,14 +22,32 @@
     ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:3px}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;height:60px;display:flex;align-items:center;justify-content:space-between}
-    .nav-logo{font-weight:700;font-size:1.1rem;color:var(--gold);font-family:'Playfair Display',Georgia,serif}
-    .nav-links{display:flex;gap:1.4rem;list-style:none}
-    .nav-links a{text-decoration:none;color:var(--muted);font-size:.83rem;letter-spacing:.5px;text-transform:uppercase;transition:color var(--t)}
-    .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,14,26,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{font-weight:700;font-size:1rem;color:var(--gold);font-family:'Playfair Display',Georgia,serif;white-space:nowrap}
+    .nav-logo span{display:none}
+    .nav-links{display:flex;gap:1.2rem;list-style:none}
+    .nav-links .ni{display:none}
+    .nav-links a{text-decoration:none;color:var(--muted);font-size:.78rem;letter-spacing:.5px;text-transform:uppercase;transition:color var(--t);padding:4px 0;border-bottom:2px solid transparent}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);border-bottom-color:var(--gold)}
+    .nav-foot{display:flex;align-items:center;gap:1rem}
+    .nav-foot a{font-size:.78rem;color:var(--muted);text-decoration:none;transition:color var(--t)}
+    .nav-foot a:hover{color:var(--gold)}
+    .main-content{margin-left:0}
 
+
+    /* HERO INDEX CARDS */
+    .hero-index{margin-top:2.5rem;width:100%;max-width:720px}
+    .hero-index-title{font-size:.75rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:1.2rem;font-weight:600}
+    .hero-index-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+    .idx-card{background:rgba(245,158,11,.04);border:1px solid rgba(245,158,11,.18);border-radius:12px;padding:16px 14px;text-align:center;cursor:pointer;transition:all .3s ease;text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;overflow:hidden}
+    .idx-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(245,158,11,.08),transparent 70%);opacity:0;transition:opacity .3s ease}
+    .idx-card:hover::before{opacity:1}
+    .idx-card:hover{border-color:rgba(245,158,11,.5);transform:translateY(-3px);box-shadow:0 8px 25px rgba(245,158,11,.12)}
+    .idx-icon{font-size:1.6rem;position:relative;z-index:1}
+    .idx-label{font-size:.78rem;font-weight:600;color:var(--text);letter-spacing:.3px;position:relative;z-index:1}
+    .idx-sub{font-size:.68rem;color:var(--muted);position:relative;z-index:1}
     /* HERO */
-    #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+    #hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:5rem 2rem 2rem;position:relative;overflow:hidden}
     .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(245,158,11,.07) 0%,transparent 70%),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(251,191,36,.04) 0%,transparent 60%);pointer-events:none}
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(245,158,11,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(245,158,11,.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
     .hero-content{text-align:center;position:relative;z-index:1;max-width:820px}
@@ -151,18 +169,23 @@
 <body>
 
 <nav>
-  <div class="nav-logo">GN</div>
+  <div class="nav-logo">Gabriel<br>Núñez-Sánchez<span>Finance & Accounting</span></div>
   <ul class="nav-links">
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#leadership">Leadership</a></li>
-    <li><a href="#collaborations">Network</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#awards">Awards</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#hero"><span class="ni">&#9670;</span>Overview</a></li>
+    <li><a href="#experience"><span class="ni">&#128188;</span>Experience</a></li>
+    <li><a href="#leadership"><span class="ni">&#127942;</span>Leadership</a></li>
+    <li><a href="#education"><span class="ni">&#127891;</span>Education</a></li>
+    <li><a href="#skills"><span class="ni">&#128295;</span>Skills</a></li>
+    <li><a href="#awards"><span class="ni">&#127941;</span>Awards</a></li>
+    <li><a href="#contact"><span class="ni">&#9993;</span>Contact</a></li>
   </ul>
+  <div class="nav-foot">
+    <a href="https://linkedin.com/in/gabriel-finance/" target="_blank">&#128279; LinkedIn Profile</a>
+    <a href="#" id="dl-resume" style="cursor:pointer">&#128196; Download Resume</a>
+  </div>
 </nav>
 
+<div class="main-content">
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div><div class="hero-grid"></div>
@@ -178,11 +201,48 @@
       <a href="data:application/pdf;base64,JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyA5IDAgUiAvTWVkaWFCb3ggWyAwIDAgNjEyIDc5MiBdIC9QYXJlbnQgOCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKNiAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDggMCBSIC9UeXBlIC9DYXRhbG9nCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9BdXRob3IgKFwoYW5vbnltb3VzXCkpIC9DcmVhdGlvbkRhdGUgKEQ6MjAyNjA0MDIxMzM0NTYtMDQnMDAnKSAvQ3JlYXRvciAoXCh1bnNwZWNpZmllZFwpKSAvS2V5d29yZHMgKCkgL01vZERhdGUgKEQ6MjAyNjA0MDIxMzM0NTYtMDQnMDAnKSAvUHJvZHVjZXIgKFJlcG9ydExhYiBQREYgTGlicmFyeSAtIFwob3BlbnNvdXJjZVwpKSAKICAvU3ViamVjdCAoXCh1bnNwZWNpZmllZFwpKSAvVGl0bGUgKFwoYW5vbnltb3VzXCkpIC9UcmFwcGVkIC9GYWxzZQo+PgplbmRvYmoKOCAwIG9iago8PAovQ291bnQgMSAvS2lkcyBbIDUgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDI3MTEKPj4Kc3RyZWFtCkdhdUhNPyRHIW4mcTBNWFcwYz1tMmN1QEtQJG1qZChkbTpjbGxlWD5tYGFYZC9LM2g9KzA4Wjo4J18mLVxfUjtmN01zMGMqMXRsbj5PJkFrWSddSjhnRUk7PFFOJDwtNmwuKC9tb2o4VDFuJ1MtMnNONmI7LmsiQXJ0QjJAVXVQcTJaVkE+WG4tMTNKYkkhX0A3Pj5aK0ZVKC1IWTNAaC9QZnVuLFJUNDFeKHEpZiwmRjgoXT5BQVRAZU8pTCpiYmVoJi9ma3AqVzpIcDEwdD9OQGtbbikjZyNKTjxGb0Y/Pk5iYk03ZSxKLnVqLTMjX2RjYiVbW2R0LCpyLjssTUF0Iz1NZklLJS1OM05nQlwmUGZhI01WNjYxNnVYYVxPZTdYJUR1JVQpRSVKM21xNEROYilHLidKZDRjMDdKcllQbXFlQy9JJDJuMG5pUmdsXVM4QC8tJFhCMDFSaF03SEdMWSozM0tnIlcoUiNJLVlaNlZpUShiaUctMiohPz9Gc0wpMEsiTDxwcGlcQlljJj8xQWoqbyhYYCVuczBKXFw9UUspRiwhKj5iUSYhQ3MxX0BMbDRAXCdSOj0xaD5RS1hHUDxWaEAqXHQuZ0xsRjM2YE8rcSNGWT9RWTpmQ2cxPiEobC5PJURbYUdibDwiOVBlajhdOEE/M0ReIkc1WUhqWE9oXG8/SV9nc3MhNVQlSiwlPyJcW0tsIjVDbVE9Vm04bT5URzdsXiRrYWthajlbNExXMiYkKzUuRmNEIjkrMVFsSDFpREU1QSwrWzEmUE9eOGItdE5wQlpXUkwsR2lwdUYoQ1NOVGw2Wkc2aj5caFZRLXMmYl1xIzcqQGRBOSxDMWtHJVxoNFVpKSVnZ0c7JSNjQydsaC5uQE4udDsrcGVfRC1oLzQ8ODNQJC1ATS9jSiQ+ajY3VjAoITNHPTpCTkNETy9tJihPb1hhciJXJzxHaC0iOEBZOzMkIXU9P1ZQNywkTVhJdUpvbT8nS10vPTlDcSpMTGJCVVQrQD1YbGE1OEs7W14mTTo/RDVrcylnQGIiSlE7UlhNbVpcMiZZSHR0aW9ib1h0MlU1XkJoQHNkK1g0Ym82MEY4PDYiKUJpYVNENXQsODolUWs2YkY1Z0o2I0EhTC1LMTVkSFBFUlw1RjoobmJxJVQqYk8hQyc4RE5gJ01ZJ2QtYD08KClUW08/NypLM1A2ImBMbm5aQWI1UGQpU0c4SHRxRlBsO2o1KFgub1lRcjAxITc3K2E8UjlBLl1QOXJsJ1VHb1NgZkRkZSY3NC91TyZRXE5ZdCIkIlVlcTNgL2ooT2JTWElOYjRsajdzc0A+aDxaVykyXE1jVSE5P2FVOilPPmNeViJvNz1qcG1FRmVDMTxSYC8tPjchc3UlKjRyUFcrM0NHYiktbCUkUlItPWNxI1hlM1h1SSdATWVfN2c5bj5CUSZwZDFhPFRWKU01O0ppTCEqLjIjc2Q8IVRfZks6PUVATDguNUBPaWc/JldEUj47Y19ySyEtW01vN1BiUXVbJlwhc0ppKmsvJSIwTU45YEY4VmtxU01eRCtMVktgbDtWVkllNl9JcFxrJjdjXlYkVHU9WTdrJ0lERGA5VypEVitoMjxQUWsuYzY+NVs5QmxoT2RNMj0nZV9xcyQsa25WWnJhQCc/QS5YSG1bTkAzT0VuM1gmKiktKD9AMDdTPzQvUyNdYzRcN2ZqKC5cPGhLZDsoYjE6UlNvJlFvTi8iNmZ1XkZHNXE2UFpzQi9aOk41NzNsc1YsQVJmWz4+XTFMbCtUNmVbY1tzdTZmazNicDVMNWYzL0BfITMuL3BgRSJrKWZuZ0FkJkFtSCJLb2VKazkyc1NIJWRqPkpMZzhYWEdiaVViU2tBX0lBVTw9WWglc3NpOGtaTlo3UUg2U2Veb3VgNzxiZ2w/KiElJ0luMCg8WCljc2ktK1JGallAPTdvLD5nc2RAOTwsXy48cG9taGhhLDsoZSpcMV47bl1fNWwqbG0jRllIYklNOCdIS1lNb2s9KUN0a3BNWT5gXkdmQTMvQ19pZXIpUlglNi1kKTshIVZcK3U2JXE5R2EqZzFVVGVEKGs9YXNxSFlbamNWb2BsJGdCTUgjKTslZkk0OEwvSCsmQ0VvJCNxNT0vIVpLbFM2LEdKRm5ZcVpUYVlNL3BHJiw1V29PT0QkMT5OZ2NGPjpMMixGOypIWlpNZVcpLyclWiEzUGtLZVAqQkAuXlxESmNsVzpeLlFtdGQnPz9BZUokZCUrM0F0VV1vMWMmTTxzND5JTF8tMj9rc0NnUWpzXC1EW2JQXyJvOk5wTHJrW29aOkhxYVVsZSRtKUFBVlxZVGAoJzk5cVpBMjs6InFbIlo2c2cmZERlW0VITzZMKDhUa2I6ND09b0ZrRDchMytfNEtlUFIwYmpXQyFxbTgoMjJBb1pYJ0REciltLmE7dTtMOjFRVUUkaG5aOz0vISNkWTQ4akpRXS4+WW5dXHUybW4rKT9xaiUiMCxVNWIqXFBuaDpIaS5XQ0drUU5DQXQ4aUNvXk0wTTEha3FmLFJHaEtXWy0nQXNXM11zK0o3YHJpbEBoZUFjR0thbD0vSydrSSVvSVkwTTVNWiMlQ05bRzExNDlsVGEiXTZWc2ZhSW1QTkAycEZZWU87QCJEMzZuZG0rLk9FSShIVFdcSWZmSENBQiQ3XVs1dEtQaihMZDA9RUZjT0omRDB0SVYzTnJbWyEscWBkJ2YqUyNJQz1jYWs7P1Q1NyxXMl9FVWFdIyoiWCMxdFRCVkErW3UyXzQvLWZMZSRiWEEsOEhJMVVmVUVpIUc2NlxbIXUzOSpJN14xQmg7RCcwaTUmV11wVnUqUDAybnVqKCQrXiRKWD4uRkwyJkEvVSRbKVtSYUtgXFlfT0pybilORDJGRz4rVmVEOWFLQztKbicybDZiXWBZRDlQTlhdJTg5Ll4yQlxfcVo9RTFaazlDN1NeLlM+QWlgITMvNGA7K1VYS2M6Nko9aG51J044JkZnPl5RK1Q0JmdeSz4xVDFZLk9JIiJsaDEyL0FHXSt1IUxdPXBNb25MTXFGTExWcGhzZ0tzW1MrVGRiOnRsNVZzLT9oIUVFYGIvbCVfPm5DTCJfcXFzTCI0U1YlO0RNYXBhQW07WTM9NlNZbTM2WEJPMDZBSF5WSF1MUmhxKG85TXNMLGNSdG5FJlhsQDAlaDg3WyhkXiZBTl5UQ0t0KW0uZzkuL0Bua2lFMFY5PDlfRj5iN2ohL2VbMGhpREZJaW0tRTMpPElWZ103UFZBMWsycyFsOkp1Lk87a0EhSENWJHFPaSxSLTEvb25YRGpqNTskMD9LT2I9N0MqRVJQYmxvTGFXX25rI2wwST9aX0UuSzFeaWxaRE5NXGVBJWRFUzFjTW9vX3M4NTspcilKPTQ7P1klPkQoK21NSkhpWV0nPFZgSWtOZDVEOUhwS2NDX1BIXGxHcCY/Ukh1TS5caWstb25TWHRfQUEibTtQYCxjK2tuPTY1PisiWmReY0JcbTVZT1UqbU0oR1giNDIrPGRpPE9UMy04XmYpMSdoYVckRz44bVRgKiElTE8vTCRXMShqVzpYYjpBdEhzPWhdMX4+ZW5kc3RyZWFtCmVuZG9iagp4cmVmCjAgMTAKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDYxIDAwMDAwIG4gCjAwMDAwMDAxMTIgMDAwMDAgbiAKMDAwMDAwMDIxOSAwMDAwMCBuIAowMDAwMDAwMzMxIDAwMDAwIG4gCjAwMDAwMDA0NDYgMDAwMDAgbiAKMDAwMDAwMDYzOSAwMDAwMCBuIAowMDAwMDAwNzA3IDAwMDAwIG4gCjAwMDAwMDA5ODcgMDAwMDAgbiAKMDAwMDAwMTA0NiAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxhMWYwZTNmMGNmY2I2NzI1MmJiOGY4ZDE3ZDhmY2FmMD48YTFmMGUzZjBjZmNiNjcyNTJiYjhmOGQxN2Q4ZmNhZjA+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAob3BlbnNvdXJjZSkKCi9JbmZvIDcgMCBSCi9Sb290IDYgMCBSCi9TaXplIDEwCj4+CnN0YXJ0eHJlZgozODQ4CiUlRU9GCg==" download="Gabriel_Nunez_Resume.pdf" class="btn btn-outline">&#128196; Download Resume</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-number">3.58</div><div class="stat-label">GPA</div></div>
+      <div class="stat"><div class="stat-number">3.61</div><div class="stat-label">GPA</div></div>
       <div class="stat"><div class="stat-number">7</div><div class="stat-label">Dean's List Semesters</div></div>
       <div class="stat"><div class="stat-number">72</div><div class="stat-label">Members Led &ndash; Financial Management Association, UPR</div></div>
       <div class="stat"><div class="stat-number">10+</div><div class="stat-label">Conferences Delivered</div></div>
     </div>
+    <!-- EXPLORE INDEX -->
+    <div class="hero-index" style="animation:fadeUp .6s .6s ease both">
+      <div class="hero-index-title">&#9670; Explore My Profile &#9670;</div>
+      <div class="hero-index-grid">
+        <a class="idx-card" href="#experience">
+          <span class="idx-icon">&#128188;</span>
+          <span class="idx-label">Experience</span>
+          <span class="idx-sub">RSM &bull; C&eacute;sar Mu&ntilde;iz</span>
+        </a>
+        <a class="idx-card" href="#leadership">
+          <span class="idx-icon">&#127942;</span>
+          <span class="idx-label">Leadership</span>
+          <span class="idx-sub">FMA &bull; Investment Club</span>
+        </a>
+        <a class="idx-card" href="#education">
+          <span class="idx-icon">&#127891;</span>
+          <span class="idx-label">Education</span>
+          <span class="idx-sub">UPR Bayam&oacute;n</span>
+        </a>
+        <a class="idx-card" href="#skills">
+          <span class="idx-icon">&#128295;</span>
+          <span class="idx-label">Skills</span>
+          <span class="idx-sub">Tax &bull; Finance &bull; Tools</span>
+        </a>
+        <a class="idx-card" href="#awards">
+          <span class="idx-icon">&#127941;</span>
+          <span class="idx-label">Awards</span>
+          <span class="idx-sub">CFA &bull; ASA &bull; AI</span>
+        </a>
+        <a class="idx-card" href="#contact">
+          <span class="idx-icon">&#9993;</span>
+          <span class="idx-label">Contact</span>
+          <span class="idx-sub">Email &bull; LinkedIn</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -317,7 +377,7 @@
       <div class="edu-deg">B.D. in Finance and Accounting</div>
       <div class="edu-school">University of Puerto Rico &ndash; Bayam&oacute;n</div>
       <div class="edu-date">Expected May 2026</div>
-      <div class="edu-gpa">&#11088; GPA: 3.58 &nbsp;&middot;&nbsp; Dean&rsquo;s List &times; 7 Semesters</div>
+      <div class="edu-gpa">&#11088; GPA: 3.61 &nbsp;&middot;&nbsp; Dean&rsquo;s List &times; 7 Semesters</div>
       <ul class="edu-ul">
         <li>President, Financial Management Association (72 members)</li>
         <li>Director &amp; Speaker, Investment Club &mdash; 10+ conferences</li>
@@ -325,7 +385,7 @@
         <li>Certified Participant, CFA Institute Ethics Challenge 2024&ndash;2025</li>
       </ul>
       <div class="cw-label">Relevant Coursework:</div>
-      <div class="tags"><span class="tag tg">Investments</span><span class="tag tg">Financial Management</span><span class="tag tg">Auditing</span><span class="tag tg">Taxation</span><span class="tag tg">Bank Administration</span></div>
+      <div class="tags"><span class="tag tg">Investments</span><span class="tag tg">Financial Management</span><span class="tag tg">Auditing</span><span class="tag tg">Taxation</span><span class="tag tg">Bank Administration</span><span class="tag tg">Accounting Principles</span><span class="tag tg">Intermediate Accounting</span><span class="tag tg">Cost Accounting</span><span class="tag tg">Corporate Finance</span><span class="tag tg">Managerial Accounting</span><span class="tag tg">Financial Statement Analysis</span></div>
     </div>
   </div>
   <div class="edu-card fu">
@@ -416,5 +476,6 @@
     links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+cur));
   });
 </script>
+</div>
 </body>
 </html>
